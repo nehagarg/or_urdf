@@ -43,7 +43,10 @@ namespace boost
       }
       
       // Now navigate down the directory branch
-      ret.append( itrTo, a_To.end() );
+      for( boost::filesystem::path::const_iterator toEnd( a_To.end() ); itrTo != toEnd; ++itrTo ) {
+        ret /= *itrTo;
+      }
+ 
       return ret;
     }
   } 
